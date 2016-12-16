@@ -303,7 +303,7 @@ jsbn@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.0.tgz#650987da0dd74f4ebf5a11377a2aa2d273e97dfd"
 
-"jsdoc@https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35":
+"jsdom@https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35":
   version "9.8.3"
   resolved "https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35"
   dependencies:

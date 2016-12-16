@@ -1,20 +1,20 @@
 {
-  "name": "js-dom-testem-launcher",
+  "name": "jsdom-testem-launher",
   "version": "0.1.0",
   "description": "Run your browser tests in Node",
-  "bin": "./bin/js-dom-testem-launcher",
+  "bin": "./bin/jsdom-testem-launcher",
   "license": "MIT",
   "author": "Alex LaFroscia <alex@lafroscia.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexlafroscia/js-dom-testem-launcher.git"
+    "url": "https://github.com/alexlafroscia/jsdom-testem-launcher.git"
   },
   "engines": {
     "node": ">=6.7.0"
   },
   "dependencies": {
     "common-tags": "^1.4.0",
-    "jsdoc": "https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35",
+    "jsdom": "https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35",
     "request": "^2.79.0"
   },
   "devDependencies": {}

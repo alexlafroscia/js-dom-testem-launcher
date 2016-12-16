@@ -3,10 +3,14 @@
 'use strict';
 
 const fetchPageBody = require('../lib/fetch-page-body');
-const loadWindow = require('../load-window.js')
+const loadWindow = require('../lib/load-window.js')
 const stripIndents = require('common-tags').stripIndents;
 
 const testPage = process.argv[2];
+if (!testPage) {
+  process.stdout.write('Missing argument: must provide a URL to visit');
+  process.exit(1);
+}
 
 fetchPageBody(testPage)
   .then((body) => {

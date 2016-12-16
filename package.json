@@ -1,5 +1,5 @@
 {
-  "name": "jsdom-testem-launher",
+  "name": "jsdom-testem-launcher",
   "version": "0.1.0",
   "description": "Run your browser tests in Node",
   "bin": "./bin/jsdom-testem-launcher",

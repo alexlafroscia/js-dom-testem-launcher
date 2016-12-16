@@ -4,6 +4,11 @@
   "description": "Run your browser tests in Node",
   "bin": "./bin/js-dom-testem-launcher",
   "license": "MIT",
+  "author": "Alex LaFroscia <alex@lafroscia.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexlafroscia/js-dom-testem-launcher.git"
+  },
   "engines": {
     "node": ">=6.7.0"
   },

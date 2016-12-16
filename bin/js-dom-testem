@@ -1,0 +1,29 @@
+#!/usr/bin/env node --debug
+
+'use strict';
+
+const fetchPageBody = require('../lib/fetch-page-body');
+const loadWindow = require('../load-window.js')
+const stripIndents = require('common-tags').stripIndents;
+
+const testPage = process.argv[2];
+
+fetchPageBody(testPage)
+  .then((body) => {
+    return loadWindow(body, testPage);
+  })
+  .then((window) => {
+    window.addEventListener('load', function() {
+      window.Testem.on('all-test-results', function(results) {
+        const message = stripIndents`
+          1..${results.total}
+          ${results.tests.map(function(test) {
+            return `${test.passed ? 'ok' : 'not ok'} ${test.id} - ${test.name}`
+          }).join('\n')}
+        `;
+
+        process.stdout.write(message)
+        process.exit(0);
+      });
+    });
+  });

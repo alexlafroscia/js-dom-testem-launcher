@@ -1,33 +1,37 @@
-#!/usr/bin/env node --debug
+#!/usr/bin/env node debug
 
 'use strict';
 
 const fetchPageBody = require('../lib/fetch-page-body');
 const loadWindow = require('../lib/load-window.js')
-const stripIndents = require('common-tags').stripIndents;
 
 const testPage = process.argv[2];
 if (!testPage) {
-  process.stdout.write('Missing argument: must provide a URL to visit');
+  process.stderr.write('Missing argument: must provide a URL to visit');
   process.exit(1);
 }
 
+function formatTAPResult(test) {
+  return `${test.passed ? 'ok' : 'not ok'} ${test.id} - ${test.name}\n`
+}
+
 fetchPageBody(testPage)
-  .then((body) => {
-    return loadWindow(body, testPage);
-  })
+  .then((body) => loadWindow(body, testPage))
   .then((window) => {
     window.addEventListener('load', function() {
-      window.Testem.on('all-test-results', function(results) {
-        const message = stripIndents`
-          1..${results.total}
-          ${results.tests.map(function(test) {
-            return `${test.passed ? 'ok' : 'not ok'} ${test.id} - ${test.name}`
-          }).join('\n')}
-        `;
-
-        process.stdout.write(message)
+      window.Testem.on('all-test-results', function() {
         process.exit(0);
+      });
+
+      window.Testem.on('test-result', function(test) {
+        process.stdout.write(formatTAPResult(test));
+        if (test.failed) {
+          const testItem = test.items[0];
+
+          testItem.stack.split('\n').forEach(function(line) {
+            process.stdout.write(line);
+          })
+        }
       });
     });
   });

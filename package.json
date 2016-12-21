@@ -13,9 +13,11 @@
     "node": ">=6.7.0"
   },
   "dependencies": {
+    "canvas": "^1.6.2",
     "common-tags": "^1.4.0",
-    "jsdom": "https://github.com/alexlafroscia/jsdom.git#1f850e63ae85ec7af77be156ea015840a1d01c35",
-    "request": "^2.79.0"
+    "jsdom": "9.9.0",
+    "request": "^2.79.0",
+    "require-dir": "^0.3.1"
   },
   "devDependencies": {}
 }

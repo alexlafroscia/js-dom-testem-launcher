@@ -4,6 +4,9 @@
   "description": "Run your browser tests in Node",
   "bin": "./bin/jsdom-testem-launcher",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint bin/ lib/ polyfills/"
+  },
   "author": "Alex LaFroscia <alex@lafroscia.com>",
   "repository": {
     "type": "git",
@@ -19,5 +22,8 @@
     "request": "^2.79.0",
     "require-dir": "^0.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-plugin-node": "^3.0.5"
+  }
 }
